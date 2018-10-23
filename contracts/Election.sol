@@ -1,12 +1,11 @@
 pragma solidity ^0.4.24;
 
-contract Election{
+contract Election {
 	// Store candidate
 	// Read candidate
 	string public candidate;
 	//Constructor
-	fucntion Election () public {
+	function Election() public {
 		candidate = "Google";
 	}
-
 }
