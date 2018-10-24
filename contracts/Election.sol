@@ -9,7 +9,6 @@ contract Election {
 	}
 	//Store
 
-
 	//Fetch
 
 	mapping(uint => Candidate) public candidates;
