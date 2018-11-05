@@ -26,4 +26,20 @@ contract("Election", function(accounts){
             assert.equal(candidate[2], 0, "contains the correct vote count");
         });
 	});
+	it("allows a voter to cast a vote", function(){
+		return Election.deployed().then(function(instance){
+		electionInstance = instance;
+		candidateId = 1;
+		return electionInstance.vote(candidateId, {from: accounts[0]});
+		}).then(function (receipt){
+			return electionInstance.voters(accounts[0]);
+		}).then(function(voted){
+			assert(voted, "the voter was marked as voted");
+			return electionInstance.voters(accounts[0]);
+		}).then(function(candidate){
+			var voteCount = candidate[2];
+			assert.equals(voteCount, 1, "increment the candidate's vote count");
+		})
+
+	});
 });
