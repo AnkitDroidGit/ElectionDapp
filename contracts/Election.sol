@@ -7,7 +7,11 @@ contract Election {
         string name;
         uint voteCount;
     }
-    //Store
+
+    //Store Accounts that have voted
+    mapping(address => bool) public voters;
+
+    //Store Candidates
 
     //Fetch
 
@@ -29,7 +33,7 @@ contract Election {
     function vote(uint _candidateId) public {
 
         //record that voter has voted
-
+        voters[msg.sender] = true;
 
         // update candidate vote count
         candidates[_candidateId].voteCount++;
