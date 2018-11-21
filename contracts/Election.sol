@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.4.4;
 
 contract Election {
     // Model candidate
@@ -20,7 +20,7 @@ contract Election {
     // Candidate Count Store
     uint public candidatesCount;
 
-    function Election() public {
+    constructor() {
         addCandidate("Candidate 1");
         addCandidate("Candidate 2");
     }
